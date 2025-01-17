@@ -1,0 +1,60 @@
+= Example API Documentation
+
+John Doe email-support
+2025-01-16
+
+== Users API
+
+This API provides endpoints for managing users.
+
+=== GET /users
+
+Retrieve a list of users. You can specify the number of users to return by providing a `limit` query parameter.
+
+----
+GET /users?limit={limit}
+
+Parameters:
+  - limit (query, optional, integer) - The number of users to return.
+    - x-example: 10
+    - x-required-by-vendor: true
+
+Responses:
+  - 200 OK: A list of users
+    - Content-Type: application/json
+    - Schema:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            x-vendor-field: true  // Vendor-specific field
+----
+
+=== POST /users
+
+Create a new user.
+
+----
+POST /users
+
+Request Body:
+  - name (body, required, string) - The name of the new user.
+  - email (body, required, string) - The email address for the new user.
+
+Responses:
+  - 201 Created: The user was successfully created.
+    - Content-Type: application/json
+    - Schema:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          email:
+            type: string
+----
