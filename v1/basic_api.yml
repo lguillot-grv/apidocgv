@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Simple API
+  title: Simple API v1
   description: A basic OpenAPI spec for importing into Gravitee.
   version: 1.0.0
 servers:
